@@ -1,0 +1,18 @@
+server:
+  port: 8080
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    oauthRS:
+      path: /oauth-rs/**
+      url: http://localhost:8082/oauth-rs
+    oauthAS:
+      path: /oauth/**
+      url: http://localhost:8081/oauth-as/oauth
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: 123
+
